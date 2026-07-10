@@ -11,6 +11,11 @@ require("./config/db");
 const authRoutes = require("./routes/auth");
 const productsRoute = require("./routes/product");
 
+// NEW ROUTES
+const cartRoutes = require("./routes/cart");
+const orderRoutes = require("./routes/order");
+const paymentRoutes = require("./routes/payment");
+
 const app = express();
 
 // Middleware
@@ -27,6 +32,11 @@ app.use(
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productsRoute);
+
+// NEW API ROUTES
+app.use("/api/cart", cartRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/payment", paymentRoutes);
 
 // Home Route
 app.get("/", (req, res) => {
